@@ -1,0 +1,14 @@
+<% if (session["user"]) %>
+
+    You are logged in. <%= link_to "Log out", :action => "logout" %><br />
+    Your unique ID for this site is <strong><%= session["user"]["identity"] %></strong><br />
+    <% if (session["user"]["fullname"]) %>
+        Your full name is <strong><%= session["user"]["fullname"] %></strong><br />
+    <% end %>
+    <% if (session["user"]["email"]) %>
+        Your email address is <strong><%= session["user"]["email"] %></strong><br />
+    <% end %>
+
+<% else %>
+    You are not logged in. <%= link_to "Log in", :action => "login" %>
+<% end %>
